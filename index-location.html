@@ -12,14 +12,16 @@
                 enableHighAccuracy: true,
                 maximumAge: 1000
             };
-            this.callback = Object.prototype.toString.call(callback) == "[object Function]" ?
-                callback :
+
+            this.callback = Object.prototype.toString.call(callback) == "[object Function]" ? callback :
             function (address) {
                 alert(address.province + address.city);
                 console.log("getocation(callbackFunction) 可获得定位信息对象");
             };
+
             var self = this;
             if (navigator.geolocation) {
+                console.log("浏览器支持geolocation， 开始定位");
                 //浏览器支持geolocation
                 navigator.geolocation.getCurrentPosition(function (position) {
                     //经度
@@ -30,6 +32,7 @@
                 }, self.onError, options);
             } else {
                 //浏览器不支持geolocation
+                console.log("浏览器不支持geolocation， 不能开始定位");
             }
         };
 
