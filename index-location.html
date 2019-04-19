@@ -1,49 +1,21 @@
-<html>
+<!DOCTYPE html>
   <head>
     <meta charset="utf-8">
     <title>Test All | Location</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
-    <script type="text/JavaScript" src="http://api.map.baidu.com/api?v=2.0&ak=Ge4zxmZelo7d9rtYFKoLA4vycy7kEMX2"></script>
-    <script type="text/javascript" src="jquery-1.7.2.js"></script>
     <style type="text/css">
-      body, html, #allmap {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        margin:0;
-        font-family:"微软雅黑";
-      }
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px}
+        #container{height:100%}
     </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ge4zxmZelo7d9rtYFKoLA4vycy7kEMX2"></script>
   </head>
   <body>
-    <div id="allmap"></div>
+    <div id="container"></div>
     <script type="text/javascript">
-      var map = new BMap.Map("allmap");
-
-      $(function() {
-        var point = new BMap.Point(116.331398, 39.897445);
-        map.centerAndZoom(point, 16);
-
-        if (navigator.geolocation) {
-          var geolocation = new BMap.Geolocation();
-          geolocation.getCurrentPosition(showLocation, {enableHighAccuracy: true});
-        } else {
-          map.addControl(new BMap.GeolocationControl());
-        }
-      });
-
-      function showLocation(r) {
-        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
-          var centerPoint = new BMap.Point(r.longitude,r.latitude);
-          map.panTo(centerPoint);
-          map.setCenter(centerPoint);
-          var mk = new BMap.Marker(centerPoint);
-          mk.disableDragging();
-          map.addOverlay(mk);
-        } else {
-          alert('failed' + this.getStatus());
-        }
-      }
+      var map = new BMap.Map("container");
+      var point = new BMap.Point(116.404, 39.915);
+      map.centerAndZoom(point, 16);
     </script>
   </body>
 </html>
