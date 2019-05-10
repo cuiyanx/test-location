@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" type="text/css" href="./lib/location/location.css">
+    <script src="./lib/location/UI-location.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=go4bTjfqC6Hv7vRjVtG3wS5c0jb8VjEs"></script>
   </head>
   <body>
     <div class="container" id="container">
       <div>
         <h2>Test Baidu Map API</h2>
-        <h4>当前位置： </h4>
+        <h4 id="currentLocation"></h4>
       </div>
       <hr />
       <div class="baiduMap" id="baiduMap"></div>
